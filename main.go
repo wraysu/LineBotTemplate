@@ -47,7 +47,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 
 	for _, event := range events {
 		if event.Type == linebot.EventTypeMessage {
-			log.Println("0001"+event.Message)
+			log.Println(event.Message)
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("NCDR"+message.Text+" OK!")).Do(); err != nil {
