@@ -38,15 +38,6 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	if r.Method == "GET" {
 		log.Println("hello world")
-		bot, err := linebot.New(<channel secret>, <channel token>)
-		if err != nil {
-		    if err == linebot.ErrInvalidSignature {
-				w.WriteHeader(400)
-			} else {
-				w.WriteHeader(500)
-			}
-			return
-			}
 		if _, err := bot.PushMessage("6184789833111", linebot.NewTextMessage("hello")).Do(); err != nil {
 		    if err == linebot.ErrInvalidSignature {
 				w.WriteHeader(400)
