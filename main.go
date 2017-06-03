@@ -35,8 +35,8 @@ func main() {
 
 func callbackHandler(w http.ResponseWriter, r *http.Request) {
 	events, err := bot.ParseRequest(r)
-	req.ParseForm()
-	if req.Method == "GET" {
+	r.ParseForm()
+	if r.Method == "GET" {
 		log.Println("hello world")
 	}	
 	if err != nil {
