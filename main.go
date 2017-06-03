@@ -39,13 +39,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "GET" {
 		log.Println("hello world")
 		if _, err := bot.PushMessage("6184789833111", linebot.NewTextMessage("hello")).Do(); err != nil {
-		    if err == linebot.ErrInvalidSignature {
-				w.WriteHeader(400)
-			} else {
-				w.WriteHeader(500)
-			}
-			return
-			}
+		   log.Print(err)
 		}
 	}	
 	if err != nil {
