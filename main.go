@@ -37,8 +37,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 	events, err := bot.ParseRequest(r)
 	r.ParseForm()
 	if r.Method == "GET" {
-		log.Println("hello world")
-		if _, err := bot.PushMessage("Re18cc30b28f1c9a33073aa335b922997", linebot.NewTextMessage("hello")).Do(); err != nil {
+		msg := r.FormValue("msg")
+		if _, err := bot.PushMessage("Re18cc30b28f1c9a33073aa335b922997", linebot.NewTextMessage(msg)).Do(); err != nil {
 		   log.Print(err)
 		}
 	}	
